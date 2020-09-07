@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from .managers import CustomAccountManager
+from app.models import Movie
 # Create your models here.
 
 class Account(AbstractBaseUser, PermissionsMixin):
@@ -32,3 +33,13 @@ class Account(AbstractBaseUser, PermissionsMixin):
 			return self.username
 		else:
 			return self.email
+
+
+
+class WatchLater(models.Model):
+	account 		=		 models.OneToOneField(Account, on_delete=models.CASCADE)
+	movies 			=		 models.ManyToManyField(Movie)
+
+
+	def __str__(self):
+		return "{}'s films".format(self.account)
