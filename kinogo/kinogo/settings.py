@@ -59,7 +59,13 @@ ROOT_URLCONF = 'kinogo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates/'),
+            os.path.join(BASE_DIR, 'usrauth/templates/'),
+            os.path.join(BASE_DIR, 'app/templates/'),
+            os.path.join(BASE_DIR, 'kinogo/templates/'),
+            
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

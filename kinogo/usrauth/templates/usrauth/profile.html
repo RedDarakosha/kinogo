@@ -1,0 +1,7 @@
+
+{% block title %}{{user.username}}{% endblock %}
+
+{% block content %}
+	<h1>{{request.user.email}}</h1>
+	<a href="{% url 'usrauth:logout' %}">Logout</a>
+{% endblock %}
